@@ -1,4 +1,3 @@
-
 // ==UserScript==
 // @name       ResponsivePage
 // @namespace  http://lifia.unlp.edu.ar
@@ -206,23 +205,25 @@
 	}
 
 	function importElement(source, destination, iBody){
-		var divElement = iBody.find(destination);
-		if ( "pattern0" === source.pattern) {
-			// Copiar
-			divElement.append(source.xpath);
-		}	
-		else if ("pattern1" === source.pattern ) {
-			// Menu
-			applyPattern1(source.xpath, divElement, iBody);
-		}
-		else if ( "pattern2" === source.pattern) {
-			// Títulos
-			divElement.css({'font-size':'200%', 'font-weight':'bold'});
-			divElement.append(source.xpath);
-		}	
-		else if ( "pattern3" === source.pattern) {
-			// Formulario
-			applyPattern3(divElement, source.xpath);
+		if (!!source) {
+			var divElement = iBody.find(destination);
+			if ( "pattern0" === source.pattern) {
+				// Copiar
+				divElement.append(source.xpath);
+			}	
+			else if ("pattern1" === source.pattern ) {
+				// Menu
+				applyPattern1(source.xpath, divElement, iBody);
+			}
+			else if ( "pattern2" === source.pattern) {
+				// Títulos
+				divElement.css({'font-size':'200%', 'font-weight':'bold'});
+				divElement.append(source.xpath);
+			}	
+			else if ( "pattern3" === source.pattern) {
+				// Formulario
+				applyPattern3(divElement, source.xpath);
+			}
 		}
 	}
 
